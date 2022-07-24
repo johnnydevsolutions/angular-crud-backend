@@ -1,21 +1,19 @@
 const express = require('express');
 const conectarDB = require('./config/db');
+const cors = require('cors');
+
 
 // Servidor criado
 const app = express();
 
-// Conectamos a la BD
+// Conectamos a BD
 conectarDB();
+app.use(cors())
 
 app.use(express.json());
 
+
 app.use('/api/produtos', require('./routes/produto'));
-
-// Definindo a rota principal
- app.get('/', (req, res) => {
-    res.send('Hello World');
-}); 
-
 
 
 // Iniciando o servidor
