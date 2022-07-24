@@ -12,8 +12,8 @@ const ProdutoSchema = mongoose.Schema({
         required: true
     },
     
-    localizacao: {
-        type: String,
+    quantidade: {   // alteração
+        type: Number, // alteração
         required: true
     }, 
     preco: {

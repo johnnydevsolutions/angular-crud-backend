@@ -31,7 +31,7 @@ exports.obterProdutos = async (req,res) => {
     exports.atualizarProduto = async (req,res) => {
             
             try {
-               const { nome, categoria, localizacao, preco } = req.body;
+               const { nome, categoria, quantidade, preco } = req.body; // alteração
                 let produto = await Produto.findById(req.params.id);
 
                 if(!produto) {
@@ -40,7 +40,7 @@ exports.obterProdutos = async (req,res) => {
 
                 produto.nome = nome;
                 produto.categoria = categoria;
-                produto.localizacao = localizacao;
+                produto.quantidade = quantidade; // alteração
                 produto.preco = preco;
 
                 produto = await Produto.findOneAndUpdate({_id: req.params.id},produto,{new: true});
